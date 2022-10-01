@@ -1,7 +1,7 @@
 #!/usr/bin/bash
-#Bash script that sets up your web servers for the deployment of web_static
+# -- Bash script that sets up your web servers for the deployment of web_static
 
-#install nginx
+# install nginx
 
 sudo apt-get update && sudo apt-get upgrade
 sudo install nginx
@@ -21,7 +21,7 @@ sudo echo '<html>
   </body>
 </html>' | sudo tee /data/web_static/releases/test/index.html
 
-#link directory
+# link directory
 
 if [ -d "/data/web_static/current" ];
 then
@@ -34,13 +34,13 @@ sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 
 sudo chown -hR $USER:$USER /data/
 
-#update nginx config
+# update nginx config
 
 sudo sed -i '38i\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n' /etc/nginx/sites-available/default
 
 sudo ln -sf '/etc/nginx/sites-available/default' '/etc/nginx/sites-enabled/default'
 
-#restart nginx
+# restart nginx
 
 sudo service nginx restart
 
