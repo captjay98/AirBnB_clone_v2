@@ -17,6 +17,6 @@ def do_pack():
     path = (f"versions/web_static_{date}.tgz")
     archive = local(f"tar -cvzf {path} web_static")
 
-    if archive.succedded:
+    if archive.succeeded:
         return path
     return None
