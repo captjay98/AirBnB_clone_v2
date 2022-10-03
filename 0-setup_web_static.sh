@@ -3,9 +3,11 @@
 
 # install nginx
 
-sudo apt-get update && sudo apt-get upgrade
+sudo apt-get update
+
 sudo install nginx
-sudo ufw allow 'nginx full'
+
+sudo ufw allow 'nginx HTTP'
 
 # create the directories
 
